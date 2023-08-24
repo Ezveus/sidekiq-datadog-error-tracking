@@ -14,7 +14,7 @@ module Sidekiq
       module Tracking
 
         # @return The number of characters written
-        def call(exception, context)
+        def self.call(exception, context)
           message = {
             error: {
               kind:    exception.class.name,

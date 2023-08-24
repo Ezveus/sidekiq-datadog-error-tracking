@@ -4,7 +4,7 @@ module Sidekiq
       module Tracking
         VERSION: String
 
-        def call: (Exception, Hash[Symbol, untyped]) -> Integer
+        def self.call: (Exception, Hash[Symbol, untyped]) -> Integer
       end
     end
   end
