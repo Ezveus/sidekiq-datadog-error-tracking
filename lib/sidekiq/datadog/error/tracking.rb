@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'sidekiq'
+
 require_relative 'tracking/version'
 require_relative '../../logger/formatters/datadog'
 

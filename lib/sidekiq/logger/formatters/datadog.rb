@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'sidekiq/logger'
+
 module Sidekiq
 
   class Logger < ::Logger
