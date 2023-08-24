@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require_relative 'tracking/version'
+require_relative '../../logger/formatters/datadog'
 
 module Sidekiq
 
@@ -10,8 +11,19 @@ module Sidekiq
 
       module Tracking
 
-        class Error < StandardError; end
-        # Your code goes here...
+        # @return The number of characters written
+        def call(exception, context)
+          message = {
+            error: {
+              kind:    exception.class.name,
+              message: exception.message,
+              stack:   exception.backtrace
+            },
+            job:   context
+          }
+
+          Sidekiq.logger.error(message)
+        end
 
       end
 

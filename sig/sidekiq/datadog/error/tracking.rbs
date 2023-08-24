@@ -3,7 +3,8 @@ module Sidekiq
     module Error
       module Tracking
         VERSION: String
-        # See the writing guide of rbs: https://github.com/ruby/rbs#guides
+
+        def call: (Exception, Hash[Symbol, untyped]) -> Integer
       end
     end
   end
